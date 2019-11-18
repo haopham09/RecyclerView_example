@@ -9,7 +9,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
 
@@ -20,14 +22,28 @@ public class MainActivity extends AppCompatActivity {
     AlertDialog.Builder builder;
     String[] arrayName;
 
+    ViewFlipper viewFlipper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //slider image
-        ViewPager viewPager=findViewById(R.id.viewpaper);
+        //slider image viewpaper
+        /*ViewPager viewPager=findViewById(R.id.viewpaper);
         ImageSliderApdater imageSliderApdater=new ImageSliderApdater(this);
-        viewPager.setAdapter(imageSliderApdater);
+        viewPager.setAdapter(imageSliderApdater);*/
+        //slider viewfliper
+        viewFlipper=findViewById(R.id.viewflipper);
+        int[]arrSlider={
+                R.drawable.san_fu_lou,
+                R.drawable.morio,
+                R.drawable.hanuri
+        };
+        for(int element : arrSlider){
+            flipperImage(element);
+        }
+
+
 
         //recyclerview
         recyclerView_freeship=findViewById(R.id.recyclerView_freeship);
@@ -109,6 +125,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+    public void flipperImage(int img){
+        ImageView imageView=new ImageView(this);
+        imageView.setImageResource(img);
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setInAnimation(this, R.anim.slide_in);
+        //viewFlipper.setOutAnimation(this,R.anim.slide_out);
 
     }
 }
