@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+    <!--ScrollView chỉ chứa 1 layout con bên trong nó-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--Slider-->
+    <RelativeLayout
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#C4C4C4">
+        <androidx.viewpager.widget.ViewPager
+            android:elevation="15dp"
+            android:id="@+id/viewpaper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Free ship"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#3D3D3D"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginBottom="15dp"
+        tools:listitem="@layout/item_layout_sanpham01"
+        android:id="@+id/recyclerView_freeship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đang khuyến mãi"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#3D3D3D"/>
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_layout_sanpham01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView_khuyenmai"/>
+    </LinearLayout>
+</ScrollView>
